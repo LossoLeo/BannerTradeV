@@ -1,0 +1,12 @@
+#ativo-create-container{
+    padding: 30px
+}
+
+#ativo-create-container{
+    font-weight: bold;
+}
+
+#ativo-create-container input,
+#ativo-create-container textarea{
+    font-size: 12px;
+}
