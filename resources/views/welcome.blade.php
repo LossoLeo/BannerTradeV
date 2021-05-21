@@ -9,9 +9,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
 
-        <title>Laravel</title>
+        <title>Trade de Valor</title>
 
-<link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="css/styleswelcome.css">
 
     </head>
     <body>
@@ -45,7 +45,7 @@
             </div>
         </nav>
     </header>
-        <h1>Bem vindo</h1>
+        <center><h1>Bem vindo</h1></center>
         <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
     </body>
 </html>
