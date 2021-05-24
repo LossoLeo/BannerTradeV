@@ -35,6 +35,9 @@
                                 Sair</a>
                             </form> 
                     </li>
+                    <li class="navbar-item">
+                        <a href="/dashboard" class="nav-link">Editar ativos</a>
+                    </li>
                     @endauth
                     @guest
                     <li class="navbar-item">

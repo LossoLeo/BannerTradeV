@@ -29,14 +29,30 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('/banner');
-
+        return redirect('/addativos/create')->with('msg', 'Ativo Adionado com sucesso');
 
     }
 
     public function inicio(){
 
         return view('welcome');
+
+    }
+
+    public function dashboard(){
+
+        $user = auth()->user();
+
+        $events = $user->events;
+
+        return view('addativos.dashboard', ['events' => $events]);
+
+
+    }
+
+    public function update($id){
+
+        dd("chamou" , $id);
 
     }
 }

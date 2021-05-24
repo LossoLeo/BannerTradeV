@@ -20,9 +20,7 @@ Route::get('/', [EventController::class, 'inicio']);
 Route::get('/banner',[EventController::class,'index']); 
 Route::get('/addativos/create',[EventController::class, 'create']);
 
+Route::post('edit/{id}', [EventController::class , 'update'])->name('edit');
+
 Route::post('/addativos', [EventController::class, 'store']);
 
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('welcome');
-})->name('dashboard');

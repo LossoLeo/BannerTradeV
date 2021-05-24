@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulário Preenchimento</title>
+    <script src="jquery.js"></script>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -26,10 +27,29 @@
           <input type='text' id='pass' name='minutagem' title='Minutagem' placeholder="Digite a minutagem" required>
           <span id='valida' class='i i-close'></span>
         </p>
-        	<input type='submit' id='do_login' value='Adicionar'>
+        	<input type='submit' name="do_login" id='do_login' value='Adicionar'>
       </div>
     </div>
     </div>
 </form>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+    $('do_login').click(function(){
+        var nomeativo_txt = $('#nomeativo').val();
+        //trim() remove espacos
+        if($.trim(nomeativo_txt) != ''){
+            $.ajax({
+                url:"banner",
+                method:"POST"
+                data:{do_login: nomeativo_txt},
+                dataType:"text",
+                succes:function(data){
+                    $('#nomeativo').val("");
+                }
+            });
+        }
+    )};
+)};
+</script>
