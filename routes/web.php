@@ -22,6 +22,8 @@ Route::get('/addativos/create',[EventController::class, 'create']);
 
 Route::post('edit/{id}', [EventController::class , 'update'])->name('edit');
 
+Route::post('delete/{id}', [EventController::class, 'delete'])->name('delete');
+
 Route::post('/addativos', [EventController::class, 'store']);
 
 Route::get('/edit-ativos', [EventController::class, 'indexEdit']);
