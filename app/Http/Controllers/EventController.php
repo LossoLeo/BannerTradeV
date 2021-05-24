@@ -50,9 +50,35 @@ class EventController extends Controller
 
     }
 
-    public function update($id){
+    public function indexEdit()
+    {
+        $events = Event::All();
 
-        dd("chamou" , $id);
+        return view('edit' , ['events' => $events]);
+    }
 
+
+    public function update(Request $request,  $id){
+
+        $data = $request->all();
+
+        $minutagem = $data['minutagem'];
+        $nome = $data['nomeativo'];
+
+        if ($minutagem != null){
+            Event::where('id' , $id)->update(['minutagem' => $minutagem]);
+        }
+        if ($nome != null){
+            Event::where('id' , $id)->update(['nomeativo' => $nome]);
+        }
+
+        return redirect('/edit-ativos');
+    }
+
+    public function delete($id)
+    {
+        Event::where('id' , $id)->delete();
+
+        return redirect('/edit-ativos');
     }
 }

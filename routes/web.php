@@ -17,10 +17,12 @@ use App\Http\Controllers\EventController;
 
 Route::get('/', [EventController::class, 'inicio']);
 
-Route::get('/banner',[EventController::class,'index']); 
+Route::get('/banner',[EventController::class,'index']);
 Route::get('/addativos/create',[EventController::class, 'create']);
 
 Route::post('edit/{id}', [EventController::class , 'update'])->name('edit');
 
 Route::post('/addativos', [EventController::class, 'store']);
+
+Route::get('/edit-ativos', [EventController::class, 'indexEdit']);
 

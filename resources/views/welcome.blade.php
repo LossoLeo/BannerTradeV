@@ -33,10 +33,10 @@
                             <a href="/logout" class="nav-link" onclick="event.preventDefault();
                                 this.closest('form').submit();">
                                 Sair</a>
-                            </form> 
+                            </form>
                     </li>
                     <li class="navbar-item">
-                        <a href="/dashboard" class="nav-link">Editar ativos</a>
+                        <a href="{{url('edit-ativos')}}" class="nav-link">Editar ativos</a>
                     </li>
                     @endauth
                     @guest
