@@ -13,38 +13,46 @@
 <body>
 <style>
 
+li{
+  display: inline-block;
+}
+
+
+
 body{
-    width: 1920px;
+    width: 100%;
 }
 
 
 .container{
-    width: 1920px;
-    padding-right: 10%;
-    margin-right: 50%;
-    margin-top: 35%;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
 }
 
-.carousel_slide,
-.carousel-inner{
-    width: 1920px;
+.container-a{
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  direction: rlt;
+
 }
-
-
 
 </style>
+
+<script>
+
+setTimeout(function () { document.location.reload(true); }, 5000);
+
+
+</script>
+
 <div class="container">
-  <h2>Ativos explicados</h2>  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-bs-interval="1000">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
+  <h2><Center>Ativos Explicados</Center></h2>  
         @foreach($events as $event)
-            <td>({{$event->nomeativo}} - {{$event->minutagem}}) - </td>
+            <li><div class="container-a">({{$event->nomeativo}} - {{$event->minutagem}})</div></li>
         @endforeach
-      </div>
-    </div>
-  </div>
 </div>
 </body>
 </html>
