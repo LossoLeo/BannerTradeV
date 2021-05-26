@@ -28,3 +28,7 @@ Route::post('/addativos', [EventController::class, 'store']);
 
 Route::get('/edit-ativos', [EventController::class, 'indexEdit']);
 
+Route::get('/bannerlive', [EventController::class , 'live']);
+
+/*Route::get('/dashboard', [EventController::class, 'dashboard']);*/
+

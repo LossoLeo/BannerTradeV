@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Event;
+use Illuminate\Support\Facades\Events;
 
 class EventController extends Controller
 {
@@ -23,13 +24,13 @@ class EventController extends Controller
     public function store(Request $request){
 
         $event = new Event;
-
+        
         $event->nomeativo = $request->nomeativo;
         $event->minutagem = $request->minutagem;
 
         $event->save();
 
-        return redirect('/addativos/create')->with('msg', 'Ativo Adionado com sucesso');
+        return redirect()->to('/addativos/create')->with('msg', 'Ativo adicionado com sucesso');
 
     }
 
@@ -80,5 +81,19 @@ class EventController extends Controller
         Event::where('id' , $id)->delete();
 
         return redirect('/edit-ativos');
+    }
+
+    public function teste(){
+
+        return view('dashboard');
+
+    }
+
+    public function live(){
+
+        $events = Event::All();
+
+        return view('bannerlive' , ['events' => $events]);
+
     }
 }

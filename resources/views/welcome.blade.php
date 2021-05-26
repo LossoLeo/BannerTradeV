@@ -28,6 +28,9 @@
                         <a href="/banner" class="nav-link">Banner</a>
                     </li>
                     <li class="navbar-item">
+                        <a href="/bannerlive" class="nav-link">Live</a>
+                    </li>
+                    <li class="navbar-item">
                         <form action="logout" method="POST">
                             @csrf
                             <a href="/logout" class="nav-link" onclick="event.preventDefault();

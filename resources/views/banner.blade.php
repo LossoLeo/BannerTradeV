@@ -11,7 +11,12 @@
 </head>
 <body>
 <a href="/addativos/create">Adicionar outro ativo</a>
+<script>
 
+setTimeout(function () { document.location.reload(true); }, 5000);
+
+
+</script>
 
 
 

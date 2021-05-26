@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+
 <form action="/addativos" method="POST">
     @csrf
     <div class='box'>
@@ -34,22 +35,3 @@
 </form>
 </body>
 </html>
-<script>
-$(document).ready(function(){
-    $('do_login').click(function(){
-        var nomeativo_txt = $('#nomeativo').val();
-        //trim() remove espacos
-        if($.trim(nomeativo_txt) != ''){
-            $.ajax({
-                url:"banner",
-                method:"POST"
-                data:{do_login: nomeativo_txt},
-                dataType:"text",
-                succes:function(data){
-                    $('#nomeativo').val("");
-                }
-            });
-        }
-    )};
-)};
-</script>
