@@ -13,7 +13,7 @@
 <a href="/addativos/create">Adicionar outro ativo</a>
 <script>
 
-setTimeout(function () { document.location.reload(true); }, 5000);
+    setTimeout(function () { document.location.reload(true); }, 5000);
 
 
 </script>
@@ -24,14 +24,14 @@ setTimeout(function () { document.location.reload(true); }, 5000);
 <tr>
 <div class="container"> 
     <td width="50%" valign="top">
-        <h2>Ativos para Descricao</h2>
+        <h2>Ativos para Comentário Fixado</h2>
         @foreach($events as $event)
             <li>{{ $event->nomeativo}} - {{ $event->minutagem}}</li>
         @endforeach
     </td>
 
     <td width="50%" valign="top">
-        <h2>Ativos para Comentarios</h2>
+        <h2>Ativos para Descrição</h2>
         @foreach($events as $event)
             <li>{{ $event->minutagem}} - {{ $event->nomeativo}}</li>
         @endforeach

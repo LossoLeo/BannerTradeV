@@ -13,7 +13,10 @@ class EventController extends Controller
 
         $events = Event::All();
 
-        return view('banner' , ['events' => $events]);
+
+        return view('banner' , [
+            'events' => $events
+            ]);
 
     }
 
@@ -93,7 +96,25 @@ class EventController extends Controller
 
         $events = Event::All();
 
-        return view('bannerlive' , ['events' => $events]);
+
+        $total = [];
+
+
+        foreach($events as $item){
+            $total[] = $item->nomeativo." ".$item->minutagem;
+        }
+
+        $palavra = $total;
+        $string = implode(" | ", $palavra);
+
+        //dd($string);
+        //dd($total, $events);
+
+        return view('bannerlive' , [
+        'events' => $events, 
+        'palavra' => $string
+        
+        ]);
 
     }
 }
