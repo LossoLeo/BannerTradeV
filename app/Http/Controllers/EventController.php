@@ -94,8 +94,13 @@ class EventController extends Controller
 
     public function live(){
 
-        $events = Event::All();
 
+
+        $data = date('d/m');
+
+
+        $events = Event::whereDate('created_at',date('Y-m-d'))->get();
+    
 
         $total = [];
 

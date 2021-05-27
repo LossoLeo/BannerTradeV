@@ -36,6 +36,8 @@ body{
   }
 
 .container-a{
+  width: 100%;
+  height: 60px; 
   display: inline-block;
   text-align: center;
   padding: 12px;
@@ -57,9 +59,10 @@ body{
   setTimeout(function () { document.location.reload(true); }, 90000);
 
 </script>
+@foreach($events as $events)
 
 <div class="order">
-  <h2 align="center">Ativos Explicados</h2>
+  <h2 align="center">Ativos Explicados em {{$events->created_at->format('d/m')}}</h2>
     <div class="container" id="ativos">
       
       <div class="container-a">
@@ -67,10 +70,8 @@ body{
 	    <marquee direction="left" behavior="alternate" scrolldelay=90 loop="" Scrollamount=10>{{$palavra}}</marquee>
       </marquee>
       </div>
-      <!-- @foreach($events as $event)
-        <li><div class="container-a"><marquee>({{$event->nomeativo}} - {{$event->minutagem}})</marquee></div></li>
-      @endforeach --> 
     </div>
 </div>
+@endforeach
 </body>
 </html>

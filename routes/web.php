@@ -17,6 +17,10 @@ use App\Http\Controllers\EventController;
 
 Route::get('/', [EventController::class, 'inicio']);
 
+Route::get('/dashboard', function(){
+    return redirect('/');
+});
+
 Route::get('/banner',[EventController::class,'index']);
 Route::get('/addativos/create',[EventController::class, 'create']);
 
@@ -30,5 +34,4 @@ Route::get('/edit-ativos', [EventController::class, 'indexEdit']);
 
 Route::get('/bannerlive', [EventController::class , 'live']);
 
-/*Route::get('/dashboard', [EventController::class, 'dashboard']);*/
 
