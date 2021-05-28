@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,13 +13,27 @@
 <a href="/addativos/create">Adicionar outro ativo</a>
 <script>
 
-    setTimeout(function () { document.location.reload(true); }, 5000);
-
+    //setTimeout(function () { document.location.reload(true); }, 10000);
+    //<label for="example-date-input" class="col-2 col-form-label"></label>
 
 </script>
 
+<div class="container">
+    <div class="row">
+        <form action="{{route('pesquisa')}}" method="POST" class="form-inline" style="width: 50%">
+        @csrf
+            <div class="form-group row">
+                <div class="col-10">
+                <input class="form-control" type="date" id="example-date-input" name="busca"> 
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary">Procurar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        </form>
+    </div>
+</div><br><br><br>
 
-
+<h2 align="center">Ativos da live do dia {{ $data}}</h2><br><br>
 <table border="0" width="100%" cellpadding="10">
 <tr>
 <div class="container"> 
@@ -38,32 +52,9 @@
     </td>
     <div id="dados"></div>
 </div>
+
 </tr>
 </table>
-
-<script>
-    function atualizar(){
-
-        //Fazer requisição pelo AJAX
-        $.get('/banner', function(dados) {
-        
-        //exibir os ativos
-            $('dados').html('<i>' + dados.nomeativo + dados.minutagem);
-
-        }, 'JSON');
-    }
-
-//Definir o intervalo de atualizar a funcao
-setInterval("atualizar()", 10000);
-
-//Quando carregar a pagina
-$(function(){
-    //primeira atualizacao
-    atualizar();
-});
-
-</script>
-
 
 </body>
 </html>

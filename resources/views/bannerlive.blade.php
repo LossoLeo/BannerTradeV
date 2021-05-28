@@ -59,10 +59,10 @@ body{
   setTimeout(function () { document.location.reload(true); }, 90000);
 
 </script>
-@foreach($events as $events)
 
+@foreach($events as $events)
 <div class="order">
-  <h2 align="center">Ativos Explicados em {{$events->created_at->format('d/m')}}</h2>
+  <h2 align="center">Ativos do dia {{$events->created_at->format('d/m')}}</h2>
     <div class="container" id="ativos">
       
       <div class="container-a">

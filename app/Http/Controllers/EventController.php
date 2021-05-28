@@ -11,11 +11,16 @@ class EventController extends Controller
 {
     public function index(){
 
-        $events = Event::All();
+        $data = date('d/m');
 
+
+        $events = Event::whereDate('created_at',date('Y-m-d'))->get();
+
+       
 
         return view('banner' , [
-            'events' => $events
+            'events' => $events,
+            'data' => $data
             ]);
 
     }
@@ -43,24 +48,12 @@ class EventController extends Controller
 
     }
 
-    public function dashboard(){
-
-        $user = auth()->user();
-
-        $events = $user->events;
-
-        return view('addativos.dashboard', ['events' => $events]);
-
-
-    }
-
     public function indexEdit()
     {
         $events = Event::All();
 
         return view('edit' , ['events' => $events]);
     }
-
 
     public function update(Request $request,  $id){
 
@@ -79,22 +72,14 @@ class EventController extends Controller
         return redirect('/edit-ativos');
     }
 
-    public function delete($id)
-    {
+    public function delete($id){
+
         Event::where('id' , $id)->delete();
 
         return redirect('/edit-ativos');
     }
 
-    public function teste(){
-
-        return view('dashboard');
-
-    }
-
     public function live(){
-
-
 
         $data = date('d/m');
 
@@ -112,9 +97,6 @@ class EventController extends Controller
         $palavra = $total;
         $string = implode(" | ", $palavra);
 
-        //dd($string);
-        //dd($total, $events);
-
         return view('bannerlive' , [
         'events' => $events, 
         'palavra' => $string
@@ -122,4 +104,23 @@ class EventController extends Controller
         ]);
 
     }
+
+    public function busca(Request $request){
+
+        $data = $request->all();
+
+        
+        $events = Event::whereDate('created_at', $data['busca'])->get();
+
+        $pesquisa = $data['busca'];
+
+        $item = date("d/m" , strtotime($pesquisa));
+        
+        return view('banner' , [
+            'events' => $events,
+            'data' => $item
+        ]);
+
+    }
+
 }
