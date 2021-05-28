@@ -31,16 +31,16 @@
                         <a href="/bannerlive" class="nav-link">Live</a>
                     </li>
                     <li class="navbar-item">
-                        <form action="logout" method="POST">
-                            @csrf
-                            <a href="/logout" class="nav-link" onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                                Sair</a>
-                            </form>
-                    </li>
-                    <li class="navbar-item">
                         <a href="{{url('edit-ativos')}}" class="nav-link">Editar ativos</a>
                     </li>
+                        <li class="navbar-item">
+                            <form action="logout" method="POST">
+                                @csrf
+                                <a href="/logout" class="nav-link" onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                    Sair</a>
+                            </form>
+                        </li>
                     @endauth
                     @guest
                     <li class="navbar-item">
@@ -51,7 +51,7 @@
             </div>
         </nav>
     </header>
-        <center><h1>Bem vindo</h1></center>
+        <h1 align="center">Bem vindo</h1>
         <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
     </body>
 </html>
