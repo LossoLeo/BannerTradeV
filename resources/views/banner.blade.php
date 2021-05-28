@@ -10,17 +10,16 @@
     <title>Banner</title>
 </head>
 <body>
-<a href="/addativos/create">Adicionar outro ativo</a>
 <script>
 
     //setTimeout(function () { document.location.reload(true); }, 10000);
     //<label for="example-date-input" class="col-2 col-form-label"></label>
 
 </script>
-
+<br><br><br>
 <div class="container">
     <div class="row">
-        <form action="{{route('pesquisa')}}" method="POST" class="form-inline" style="width: 50%">
+        Pesquisar dia&nbsp;&nbsp;&nbsp;&nbsp;<form action="{{route('pesquisa')}}" method="POST" class="form-inline" style="width: 50%">
         @csrf
             <div class="form-group row">
                 <div class="col-10">
