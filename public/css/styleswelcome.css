@@ -5,18 +5,19 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-  
+
 body {
-    background: rgb(255, 255, 255);
-    background: -moz-linear-gradient(-45deg, rgb(120, 158, 120) 0%, rgb(165, 207, 130) 100%);
+    background: rgb(0, 0, 0);
+    background: -moz-linear-gradient(-45deg, rgb(120, 158, 120) 0%, rgb(22, 37, 7) 100%);
     background: -webkit-gradient(left top, right bottom, color-stop(0%, rgb(0, 0, 0)), color-stop(100%, rgb(161, 207, 167)));
     background: -webkit-linear-gradient(-45deg, rgb(32, 31, 34) 0%, rgb(158, 206, 151) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgb(97, 228, 104) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgb(94, 197, 80) 100%);
-    background: linear-gradient(10deg, rgba(30,29,31,1) 0%, rgb(97, 223, 116) 100%);
+    background: -o-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgb(8, 7, 7) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(10deg, rgb(103, 100, 100) 0%, rgb(243, 237, 237) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1 );
 }
 
 h1{
     color: rgb(0, 0, 0);
+    font-family: 'Quicksand', sans-serif;
 }

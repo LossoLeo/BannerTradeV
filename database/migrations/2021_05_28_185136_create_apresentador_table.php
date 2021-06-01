@@ -14,7 +14,7 @@ class CreateApresentadorTable extends Migration
     public function up()
     {
         Schema::create('apresentador', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_apresentador');
             $table->string('nomeapresentador');
             $table->timestamps();
         });
