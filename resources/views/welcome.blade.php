@@ -10,6 +10,7 @@
     body,h1,h2,h3,h4,h5,h6 {
         font-family: "Raleway", sans-serif;
         font-size: 15px;
+        background-color: black;
     }
 
     body, html {
@@ -26,26 +27,29 @@
     }
 
     .w3-bar .w3-button {
-        padding: 15px;
-        margin-left:25px;
-        margin-right:25px;
+        padding-top: 10px;
+        margin-left:20px;
+        margin-right:20px;
+        margin-top: 20px;
     }
+
+
 
 </style>
 
 <body>
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-    <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+    <div class="w3-bar w3-card" style="background-color: lightslategrey" id="myNavbar">
+        <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
         <!-- Right-sided navbar links -->
         @auth
-        <div class="w3-hide-small" style="margin-left: 47%">
-            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
+        <div class="w3-hide-small" style="margin-left: 50%">
+            <a href="" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
             <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
             <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
             <a href="/bannerlive" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
-            <a href="/{{url('edit-ativos')}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
+            <a href="{{url('edit-ativos')}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
             <form action="logout" method="POST">
                 @csrf
                 <a href="/logout" class="w3-bar-item w3-button" onclick="event.preventDefault();
@@ -82,15 +86,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64">
-    <div class="w3-large w3-section">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-        <i class="fa fa-snapchat w3-hover-opacity"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
+<footer class="w3-center w3-black" style="padding: 8px">
     <p>Agência Hey <i class="fa fa-copyright" aria-hidden="true"></i> - Guarapuava</p>
 </footer>
 

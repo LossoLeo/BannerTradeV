@@ -8,66 +8,73 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Editar Ativos</title>
 </head>
+
+<style>
+
+    .w3-bar .w3-button {
+        padding-top: 10px;
+        margin-left:20px;
+        margin-right:20px;
+        margin-top: 20px;
+    }
+
+    body,h1,h2,h3,h4,h5,h6 {
+        font-family: "Raleway", sans-serif;
+        font-size: 15px;
+        background-color: #ffffff;
+    }
+
+    body, html {
+        height: 100%;
+        line-height: 1.8;
+    }
+
+    td,th {
+      font-size: 20px;
+    }
+
+</style>
+
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
-            <ul class="navbar-nav ml-auto text-center">
-                <a class="navbar-brand" href="/">Trade de Valor</a>
-                @auth
-                    <li class="navbar-item">
-                        <a href="#" class="nav-link">Apresentador {{ Auth::user()->name }}</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="/addativos/create" class="nav-link">Adicionar Ativo</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="/banner" class="nav-link">Banner</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="/bannerlive" class="nav-link">Live</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="{{url('edit-ativos')}}" class="nav-link">Editar ativos</a>
-                    </li>
-                    <li class="navbar-item">
-                        <form action="logout" method="POST">
-                            @csrf
-                            <a href="/logout" class="nav-link" onclick="event.preventDefault();
-                        this.closest('form').submit();">
-                                Sair</a>
-                        </form>
-                    </li>
+
+<div class="w3-top">
+    <div class="w3-bar w3-card" style="background-color: lightslategrey" id="myNavbar">
+        <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
+        <!-- Right-sided navbar links -->
+        @auth
+            <div class="w3-hide-small" style="margin-left: 50%">
+                <a href="" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
+                <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
+                <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
+                <a href="/bannerlive" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
+                <a href="{{url('edit-ativos')}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
+                <form action="logout" method="POST">
+                    @csrf
+                    <a href="/logout" class="w3-bar-item w3-button" onclick="event.preventDefault();
+                     this.closest('form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a>
+                </form>
                 @endauth
-            </ul>
-        </div>
-        <div class="mx-auto my-2 order-0 order-md-1 position-relative">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-            <ul class="navbar-nav mr-auto text-center">
                 @guest
-                    <li class="navbar-item">
-                        <a href="/login" class="nav-link">Entrar</a>
-                    </li>
+                    <a href="/login" class="w3-bar-item w3-button">Entrar</a>
                 @endguest
-            </ul>
-            <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
-                <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
-                <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
-            </ul>
-        </div>
-    </nav>
+            </div>
 
-</header>
 
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+    </div>
+</div>
+
+<br><br>
 <table class="table">
     <thead>
     <tr>
@@ -137,7 +144,7 @@
 
     </tr>
     @endforeach
-
+<br>
 </body>
 </html>
 
