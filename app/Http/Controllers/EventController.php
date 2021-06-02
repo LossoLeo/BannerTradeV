@@ -16,7 +16,6 @@ class EventController extends Controller
 
         $events = Event::whereDate('created_at',date('Y-m-d'))->get();
 
-       
 
         return view('banner' , [
             'events' => $events,
@@ -32,7 +31,7 @@ class EventController extends Controller
     public function store(Request $request){
 
         $event = new Event;
-        
+
         $event->nomeativo = $request->nomeativo;
         $event->minutagem = $request->minutagem;
 
@@ -85,7 +84,7 @@ class EventController extends Controller
 
 
         $events = Event::whereDate('created_at',date('Y-m-d'))->get();
-    
+
 
         $total = [];
 
@@ -98,9 +97,9 @@ class EventController extends Controller
         $string = implode(" | ", $palavra);
 
         return view('bannerlive' , [
-        'events' => $events, 
+        'events' => $events,
         'palavra' => $string
-        
+
         ]);
 
     }
@@ -109,13 +108,13 @@ class EventController extends Controller
 
         $data = $request->all();
 
-        
+
         $events = Event::whereDate('created_at', $data['busca'])->get();
 
         $pesquisa = $data['busca'];
 
         $item = date("d/m" , strtotime($pesquisa));
-        
+
         return view('banner' , [
             'events' => $events,
             'data' => $item

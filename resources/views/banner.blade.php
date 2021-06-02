@@ -16,7 +16,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
             <ul class="navbar-nav ml-auto text-center">
+                <a class="navbar-brand" href="/">Trade de Valor</a>
                 @auth
+                    <li class="navbar-item">
+                        <a href="#" class="nav-link">Apresentador {{ Auth::user()->name }}</a>
+                    </li>
                     <li class="navbar-item">
                         <a href="/addativos/create" class="nav-link">Adicionar Ativo</a>
                     </li>
@@ -33,7 +37,7 @@
                         <form action="logout" method="POST">
                             @csrf
                             <a href="/logout" class="nav-link" onclick="event.preventDefault();
-                                this.closest('form').submit();">
+                        this.closest('form').submit();">
                                 Sair</a>
                         </form>
                     </li>
@@ -71,7 +75,7 @@
 <br><br><br>
 <div class="container">
     <div class="row">
-        Pesquisar dia&nbsp;&nbsp;&nbsp;&nbsp;<form action="{{route('pesquisa')}}" method="POST" class="form-inline" style="width: 50%">
+        Pesquisar dia&nbsp;&nbsp;<form action="{{route('pesquisa')}}" method="POST" class="form-inline" style="width: 50%">
         @csrf
             <div class="form-group row">
                 <div class="col-10">

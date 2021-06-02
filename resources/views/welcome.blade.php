@@ -1,70 +1,125 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="pt-br">
+<title>Inicio-Trade de Valor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,h1,h2,h3,h4,h5,h6 {
+        font-family: "Raleway", sans-serif;
+        font-size: 15px;
+    }
 
-        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    body, html {
+        height: 100%;
+        line-height: 1.8;
+    }
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    /* Full height image header */
+    .bgimg-1 {
+        background-position: center;
+        background-size: cover;
+        background-image: url("{{asset('img/logo_trade_azul.png')}}");
+        min-height: 100%;
+    }
+
+    .w3-bar .w3-button {
+        padding: 15px;
+        margin-left:25px;
+        margin-right:25px;
+    }
+
+</style>
+
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+        <!-- Right-sided navbar links -->
+        @auth
+        <div class="w3-hide-small" style="margin-left: 47%">
+            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
+            <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
+            <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
+            <a href="/bannerlive" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
+            <a href="/{{url('edit-ativos')}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
+            <form action="logout" method="POST">
+                @csrf
+                <a href="/logout" class="w3-bar-item w3-button" onclick="event.preventDefault();
+                     this.closest('form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a>
+            </form>
+            @endauth
+            @guest
+                <a href="/login" class="w3-bar-item w3-button">Entrar</a>
+            @endguest
+        </div>
 
 
-        <title>Inicio-Trade De Valor</title>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
-        <link rel="stylesheet" href="css/styleswelcome.css">
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>
 
-    </head>
-    <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
-                <ul class="navbar-nav ml-auto text-center">
-                    @auth
-                        <li class="navbar-item">
-                            <a href="/addativos/create" class="nav-link">Adicionar Ativo</a>
-                        </li>
-                        <li class="navbar-item">
-                            <a href="/banner" class="nav-link">Banner</a>
-                        </li>
-                        <li class="navbar-item">
-                            <a href="/bannerlive" class="nav-link">Live</a>
-                        </li>
-                        <li class="navbar-item">
-                            <a href="{{url('edit-ativos')}}" class="nav-link">Editar ativos</a>
-                        </li>
-                        <li class="navbar-item">
-                            <form action="logout" method="POST">
-                                @csrf
-                                <a href="/logout" class="nav-link" onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                                    Sair</a>
-                            </form>
-                        </li>
-                    @endauth
-                </ul>
-            </div>
-            <div class="mx-auto my-2 order-0 order-md-1 position-relative">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-                <ul class="navbar-nav mr-auto text-center">
-                    @guest
-                        <li class="navbar-item">
-                            <a href="/login" class="nav-link">Entrar</a>
-                        </li>
-                    @endguest
-                </ul>
-                <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
-                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
-                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-        <h1 align="center">Trade de Valor</h1>
-        <img src="logotrade.png">
-        <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
-    </body>
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+    </div>
+</header>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+    <div class="w3-large w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <p>Agência Hey <i class="fa fa-copyright" aria-hidden="true"></i> - Guarapuava</p>
+</footer>
+
+<script>
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+
+
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+
+    function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+        } else {
+            mySidebar.style.display = 'block';
+        }
+    }
+
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+</script>
+
+</body>
 </html>
