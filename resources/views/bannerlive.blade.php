@@ -9,6 +9,9 @@
     <script src="/path/to/cdn/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,500;1,800&display=swap" rel="stylesheet">
+    <script src="marquee.js"></script>
 
     <title>Banner para a live</title>
 </head>
@@ -36,19 +39,30 @@ body{
   }
 
 .container-a{
-  width: 100%;
-  height: 60px; 
-  display: inline-block;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  margin: 0 auto;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    color: #55bbf4;
+    font-weight: bold;
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    padding: 5px;
+    height: 45px;
+    position: relative;
+
 }
 
 .order{
 
-  margin-top:37%; 
+  margin-top:37%;
 
+}
+
+marquee{
+    background-color: rgb(45, 45, 45);
+    width: 100%;
 }
 
 
@@ -60,18 +74,20 @@ body{
 
 </script>
 
+
 @foreach($events as $events)
 <div class="order">
-  <h2 align="center">Ativos do dia {{$events->created_at->format('d/m')}}</h2>
+  <h2 align="center">Ativos do dia {{$events->created_at->format('d/M')}}</h2>
     <div class="container" id="ativos">
-      
-      <div class="container-a">
-      <marquee behavior="alternate" direction="up" width="80%">
-	    <marquee direction="left" behavior="alternate" scrolldelay=90 loop="" Scrollamount=10>{{$palavra}}</marquee>
-      </marquee>
-      </div>
+        <div class="container-a">
+            <marquee behavior="alternate" direction="up" width="80%">
+                <marquee direction="left" behavior="alternate" scrolldelay=90 loop="1" Scrollamount=5> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+            </marquee>
+        </div>
     </div>
+    @endforeach
 </div>
-@endforeach
+
+
 </body>
 </html>

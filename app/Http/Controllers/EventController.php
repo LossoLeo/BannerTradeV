@@ -91,11 +91,13 @@ class EventController extends Controller
 
 
         foreach($events as $item){
-            $total[] = $item->nomeativo." ".$item->minutagem;
+            $total[] = $item->nomeativo." - ".$item->minutagem;
+
         }
 
         $palavra = $total;
-        $string = implode(" | ", $palavra);
+        $string = implode( "  |  ", $palavra);
+
 
         return view('bannerlive' , [
         'events' => $events,

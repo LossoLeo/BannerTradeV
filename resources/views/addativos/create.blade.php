@@ -90,6 +90,21 @@
     </style>
 </head>
 <body>
+<script>
+    $('#minutagem')
+        .inputmask({
+            alias: 'hh:mm:ss',
+            showMaskOnHover: false,
+            showMaskOnFocus: false,
+        })
+        .on('cut', function(evt) {
+             console.log(evt);
+        })
+        .on('paste', function(evt) {
+            console.log(evt);
+        });
+</script>
+
 <div class="contact-form">
     <form action="/addativos" method="POST">
         @csrf
