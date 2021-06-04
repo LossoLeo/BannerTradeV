@@ -54,7 +54,7 @@
         <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
         <!-- Right-sided navbar links -->
         @auth
-            <div class="w3-hide-small" style="margin-left: 55%">
+            <div class="w3-hide-small" style="margin-left: 52%">
                 <a href="/conta" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
                 <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
                 <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
@@ -98,7 +98,7 @@
     <tr>
         <th scope="row">{{ $event->nomeativo}}</th>
         <td>{{ $event->minutagem}}</td>
-        <td>{{ $event->created_at }}</td>
+        <td>{{ date('d-M-y', strtotime($event->created_at)) }}</td>
         <td><button type="submit" class="btn " data-toggle="modal" data-target="#update{{$event->id}}"style="background-color: #603fb9 ; color: white">Editar</button></td>
         <td><button type="submit" class="btn " data-toggle="modal" data-target="#delete{{$event->id}}"style="background-color: #603fb9 ; color: white">Apagar</button></td>
 
@@ -106,7 +106,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar ativo {{$event->nomeativo}}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar ativo {{$event->nomeativo}} adicionado em {{ date('d-M-y', strtotime($event->created_at)) }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -143,7 +143,7 @@
                     <form action="{{route('delete' , ['id' => $event->id])}}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="">Excluir {{$event->nomeativo}} da lista de ativos?</label>
+                                <label for="">Excluir {{$event->nomeativo}} criado em {{ date('d-M-y', strtotime($event->created_at)) }} da lista de ativos?</label>
                             </div>
                         <br>
                             <center><button type="submit" class="btn btn-primary">Sim</button></center>

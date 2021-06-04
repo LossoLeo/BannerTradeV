@@ -10,6 +10,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.time').mask('00:00:00');
+        });
+    </script>
+
 
     <style>
         html, body {
@@ -73,19 +81,20 @@
             resize: vertical;
         }
         .hint-text {
-            font-size: 15px;
+            font-size: 18px;
             text-align: center;
             padding-bottom: 25px;
             opacity: 0.5;
         }
+
     </style>
 </head>
 <body>
 <div class="contact-form">
     <form action="/addativos" method="POST">
         @csrf
-        <h1>Adicionar um novo ativo</h1>
-        <p class="hint-text">Adicionar ativo</p>
+        <h1>Cadastrar um novo ativo</h1>
+        <p class="hint-text">Para minutagem, usar o formato abaixo<br>min:seg</p>
         <div class="form-group">
             <label for="nomeativo">Ativo</label>
             <input type="text" id='nomeativo' name='nomeativo' title='Nomeativo' placeholder="Digite o ativo" class="form-control" required>
@@ -93,7 +102,7 @@
         </div>
         <div class="form-group">
             <label for="minutagem">Minutagem</label>
-            <input type="text" class="form-control" id="pass" name='minutagem' title='Minutagem' placeholder='Digite a minutagem' required>
+            <input type="text" class="form-control" id="minutagem" name='minutagem' title='Minutagem' placeholder='Digite a minutagem' required>
         </div>
         <input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Adicionar' >
     </form>
