@@ -19,9 +19,10 @@
 
     .w3-bar .w3-button {
         padding-top: 10px;
-        margin-left:20px;
-        margin-right:20px;
-        margin-top: 20px;
+        margin-left:10px;
+        margin-right:10px;
+        margin-top: 15px;
+        color: white;
     }
 
     body,h1,h2,h3,h4,h5,h6 {
@@ -35,6 +36,11 @@
         line-height: 1.8;
     }
 
+    img{
+        margin-top: -5px;
+    }
+
+
     td,th {
       font-size: 20px;
     }
@@ -44,12 +50,12 @@
 <body>
 
 <div class="w3-top">
-    <div class="w3-bar w3-card" style="background-color: lightslategrey" id="myNavbar">
+    <div class="w3-bar w3-card" style="background-color: #000000" id="myNavbar">
         <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
         <!-- Right-sided navbar links -->
         @auth
-            <div class="w3-hide-small" style="margin-left: 50%">
-                <a href="" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
+            <div class="w3-hide-small" style="margin-left: 55%">
+                <a href="/conta" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
                 <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
                 <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
                 <a href="/bannerlive" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
@@ -74,6 +80,8 @@
     </div>
 </div>
 
+
+
 <br><br>
 <table class="table">
     <thead>
@@ -90,6 +98,7 @@
     <tr>
         <th scope="row">{{ $event->nomeativo}}</th>
         <td>{{ $event->minutagem}}</td>
+        <td>{{ $event->created_at }}</td>
         <td><button type="submit" class="btn " data-toggle="modal" data-target="#update{{$event->id}}"style="background-color: #603fb9 ; color: white">Editar</button></td>
         <td><button type="submit" class="btn " data-toggle="modal" data-target="#delete{{$event->id}}"style="background-color: #603fb9 ; color: white">Apagar</button></td>
 
@@ -113,6 +122,7 @@
                                 <label for="exampleInputPassword1">Altere a Minutagem</label>
                                 <input type="text" class="form-control" id="minutagem" name="minutagem" placeholder="{{$event->minutagem}}">
                             </div>
+                            <br>
                             <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>
@@ -133,8 +143,9 @@
                     <form action="{{route('delete' , ['id' => $event->id])}}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="">Apagar {{$event->nomeativo}}?</label>
+                                <label for="">Excluir {{$event->nomeativo}} da lista de ativos?</label>
                             </div>
+                        <br>
                             <center><button type="submit" class="btn btn-primary">Sim</button></center>
                         </form>
                     </div>

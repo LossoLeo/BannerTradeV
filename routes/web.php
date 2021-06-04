@@ -34,6 +34,7 @@ Route::get('/edit-ativos', [EventController::class, 'indexEdit']);
 
 Route::get('/bannerlive', [EventController::class , 'live']);
 
+Route::get('/conta',[EventController::class, 'conta']);
 
 
 Route::post('/pesquisadata', [EventController::class , 'busca'])->name('pesquisa');

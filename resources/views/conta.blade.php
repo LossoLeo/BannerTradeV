@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<title>Inicio-Trade de Valor</title>
+<title>Minha Conta</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -10,7 +10,7 @@
     body,h1,h2,h3,h4,h5,h6 {
         font-family: "Raleway", sans-serif;
         font-size: 15px;
-        background-color: black;
+        background-color: #ffffff;
     }
 
     body, html {
@@ -22,7 +22,6 @@
     .bgimg-1 {
         background-position: center;
         background-size: cover;
-        background-image: url("{{asset('img/logo_trade_azul.png')}}");
         min-height: 100%;
     }
 
@@ -49,29 +48,29 @@
         <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
         <!-- Right-sided navbar links -->
         @auth
-        <div class="w3-hide-small" style="margin-left: 55%">
-            <a href="/conta" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
-            <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
-            <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
-            <a href="/bannerlive" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
-            <a href="{{url('edit-ativos')}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
-            <form action="logout" method="POST">
-                @csrf
-                <a href="/logout" class="w3-bar-item w3-button" onclick="event.preventDefault();
+            <div class="w3-hide-small" style="margin-left: 55%">
+                <a href="" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
+                <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
+                <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
+                <a href="/bannerlive" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
+                <a href="{{url('edit-ativos')}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
+                <form action="logout" method="POST">
+                    @csrf
+                    <a href="/logout" class="w3-bar-item w3-button" onclick="event.preventDefault();
                      this.closest('form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a>
-            </form>
-            @endauth
-            @guest
-                <a href="/login" class="w3-bar-item w3-button">Entrar</a>
-            @endguest
-        </div>
+                </form>
+                @endauth
+                @guest
+                    <a href="/login" class="w3-bar-item w3-button">Entrar</a>
+                @endguest
+            </div>
 
 
-        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-            <i class="fa fa-bars"></i>
-        </a>
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
     </div>
 </div>
 

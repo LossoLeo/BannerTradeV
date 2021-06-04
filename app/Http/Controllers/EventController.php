@@ -51,6 +51,7 @@ class EventController extends Controller
     {
         $events = Event::All();
 
+
         return view('edit' , ['events' => $events]);
     }
 
@@ -119,6 +120,11 @@ class EventController extends Controller
             'events' => $events,
             'data' => $item
         ]);
+
+    }
+
+    public function conta(){
+        return view('conta');
 
     }
 
