@@ -21,7 +21,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="Senha" value="{{ __('Password') }}" />
+                <x-jet-label for="Senha" value="{{ __('Senha') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 

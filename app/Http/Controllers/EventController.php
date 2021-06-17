@@ -98,11 +98,13 @@ class EventController extends Controller
         $palavra = $total;
         $string = implode( "  |  ", $palavra);
 
+        $cont = count($events);
+
 
         return view('bannerlive' , [
         'events' => $events,
-        'palavra' => $string
-
+        'palavra' => $string,
+        'tam' => $cont
         ]);
 
     }
@@ -127,6 +129,24 @@ class EventController extends Controller
 
     public function conta(){
         return view('conta');
+
+    }
+
+
+    public function buscaedit(Request $request){
+
+        $data = $request->all();
+        $events = Event::whereDate('created_at', $data['buscaedit'])->get();
+
+        $pesquisaedit = $data['buscaedit'];
+
+        $item = date("d/m/y" , strtotime($pesquisaedit));
+
+        return view('edit' , [
+            'events' => $events,
+            'data' => $item
+        ]);
+
 
     }
 

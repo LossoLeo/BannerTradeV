@@ -38,5 +38,6 @@ Route::get('/conta',[EventController::class, 'conta']);
 
 
 Route::post('/pesquisadata', [EventController::class , 'busca'])->name('pesquisa');
+Route::post('/pesquisaedit', [EventController::class , 'buscaedit'])->name('pesquisaedit');
 
 

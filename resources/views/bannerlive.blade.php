@@ -38,6 +38,16 @@ body{
     margin: 0 auto;
   }
 
+.containermenor{
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    margin: 0 auto;
+    background-color: rgb(45, 45, 45);
+    width: 100%;
+}
+
+
 .container-a{
     width: 100%;
     display: inline-block;
@@ -70,22 +80,29 @@ marquee{
 
 <script>
 //funcao de atualizar pagina
-  setTimeout(function () { document.location.reload(true); }, 90000);
+  setTimeout(function () { document.location.reload(true); }, 150000);
 
 </script>
 
+@if($tam <= 8)
 
-@foreach($events as $events)
 <div class="order">
-  <h2 align="center">Ativos do dia {{$events->created_at->format('d/M')}}</h2>
-    <div class="container" id="ativos">
+    <div class="containermenor" id="ativos">
         <div class="container-a">
-            <marquee behavior="alternate" direction="up" width="80%">
-                <marquee direction="left" behavior="alternate" scrolldelay=90 loop="1" Scrollamount=5> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
-            </marquee>
+            &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp
         </div>
     </div>
-    @endforeach
+    @endif
+    @if($tam > 8)
+            <div class="order">
+                <div class="container" id="ativos">
+                    <div class="container-a">
+                        <marquee behavior="alternate" direction="up" width="80%">
+                            <marquee direction="left" scrolldelay=90 loop="3" Scrollamount=10> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                        </marquee>
+                    </div>
+                </div>
+                @endif
 </div>
 
 
