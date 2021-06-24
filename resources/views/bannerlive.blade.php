@@ -27,6 +27,7 @@ li{
 
 body{
     width: 100%;
+    background-color: black;
 }
 
 
@@ -43,7 +44,7 @@ body{
     overflow: auto;
     white-space: nowrap;
     margin: 0 auto;
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(0, 0, 0);
     width: 100%;
 }
 
@@ -54,10 +55,10 @@ body{
     text-align: center;
     text-decoration: none;
     margin: 0 auto;
-    color: #55bbf4;
+    color: #ffffff;
     font-weight: bold;
     font-family: 'Barlow', sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     padding: 5px;
     height: 45px;
     position: relative;
@@ -71,7 +72,7 @@ body{
 }
 
 marquee{
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(0, 0, 0);
     width: 100%;
 }
 
@@ -89,20 +90,51 @@ marquee{
 <div class="order">
     <div class="containermenor" id="ativos">
         <div class="container-a">
-            &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}} &nbsp&nbsp&nbsp&nbsp
         </div>
     </div>
     @endif
-    @if($tam > 8)
+    @if($tam > 8 && $tam <= 15)
             <div class="order">
                 <div class="container" id="ativos">
                     <div class="container-a">
                         <marquee behavior="alternate" direction="up" width="80%">
-                            <marquee direction="left" scrolldelay=90 loop="3" Scrollamount=10> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                            <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=7> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
                         </marquee>
                     </div>
                 </div>
                 @endif
+                @if($tam > 15 && $tam <= 30 )
+                    <div class="order">
+                        <div class="container" id="ativos">
+                            <div class="container-a">
+                                <marquee behavior="alternate" direction="up" width="80%">
+                                    <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=20> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                                </marquee>
+                            </div>
+                        </div>
+                        @endif
+                        @if($tam > 30 && $tam <= 60)
+                            <div class="order">
+                                <div class="container" id="ativos">
+                                    <div class="container-a">
+                                        <marquee behavior="alternate" direction="up" width="80%">
+                                            <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=12> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                                        </marquee>
+                                    </div>
+                                </div>
+                                @endif
+                                @if($tam > 60)
+                                    <div class="order">
+                                        <div class="container" id="ativos">
+                                            <div class="container-a">
+                                                <marquee behavior="alternate" direction="up" width="80%">
+                                                    <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=20> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                                                </marquee>
+                                            </div>
+                                        </div>
+                                        @endif
+
 </div>
 
 

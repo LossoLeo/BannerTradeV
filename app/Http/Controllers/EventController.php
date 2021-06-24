@@ -24,6 +24,12 @@ class EventController extends Controller
 
     }
 
+    public function createLive(){
+
+        return view('lives');
+
+    }
+
     public function create(){
         return view('addativos.create');
     }
@@ -96,7 +102,7 @@ class EventController extends Controller
         }
 
         $palavra = $total;
-        $string = implode( "  |  ", $palavra);
+        $string = implode( "     |     ", $palavra);
 
         $cont = count($events);
 
@@ -131,7 +137,6 @@ class EventController extends Controller
         return view('conta');
 
     }
-
 
     public function buscaedit(Request $request){
 
