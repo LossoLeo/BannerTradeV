@@ -54,7 +54,7 @@
         <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
         <!-- Right-sided navbar links -->
         @auth
-            <div class="w3-hide-small" style="margin-left: 52%">
+            <div class="w3-hide-small" style="margin-left: 45%">
                 <a href="/conta" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
                 <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
                 <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
@@ -78,11 +78,12 @@
                 <i class="fa fa-bars"></i>
             </a>
     </div>
+
 </div>
 
 
 
-<br><br>
+<br><br><br><br><br>
 <table class="table">
     <thead>
     <tr>
