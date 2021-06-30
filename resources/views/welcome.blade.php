@@ -33,12 +33,18 @@
         margin-right: 10px;
         margin-top: 15px;
         color: white;
+        font-size: 18px;
     }
 
     img{
         margin-top: -5px;
+        horiz-align: center;
     }
 
+    .login_button{
+        margin-left: 50%;
+        font-size: 20px;
+    }
 
 
 </style>
@@ -63,8 +69,10 @@
             </form>
             @endauth
             @guest
-                <a href="/login" class="w3-bar-item w3-button">Entrar</a>
+                <div class="login_button">
+                    <a href="/login" class="w3-bar-item w3-button">Login</a>
             @endguest
+                </div>
         </div>
 
 

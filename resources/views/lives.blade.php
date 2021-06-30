@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Adicionar Ativo</title>
+    <title>Criar Live</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -87,25 +87,33 @@
 
 </script>
 <div class="contact-form">
-    <form action="/addativos" method="POST">
+    <form action="/lives" method="POST">
         @csrf
-        <h1>Cadastrar um novo ativo</h1>
-        <p class="hint-text">Para minutagem, usar somente números<br></p>
+        <h1>Criar Live</h1>
+        <p class="hint-text"><br></p>
         <div class="form-group">
-            <label for="nomeativo">Ativo</label>
-            <input type="text" id='nomeativo' name='nomeativo' title='Nomeativo' placeholder="Digite o ativo" class="form-control" required>
+            <label for="apresentador">Qual o Apresentador?</label>
+            <select name="apresentador" id="apresentador">
+                <option value="Felipe Dabul">Felipe Dabul</option>
+                <option value="Eron Borges">Eron Borges</option>
+            </select>
             <span id='valida' class='i i-warning'></span>
         </div>
         <div class="form-group">
-            <label for="minutagem">Minutagem</label>
-            <input type="text" class="form-control" id="minutagem" name='minutagem'  title='Minutagem' placeholder='Digite a minutagem' required>
+            <label for="lives">Qual a live?</label>
+            <select name="nomelive" id="nomelive">
+                <option value="fechamento_publica">Análise de Fechamento - Pública</option>
+                <option value="position_trade">Position Trade</option>
+                <option value="position_americana">Position Trade Mercado Americano</option>
+                <option value="tira_duvidas">Espaço Tira Dúvidas</option>
+                <option value="fechamento_pt1">Análise de Fechamento - Parte 1</option>
+            </select>
         </div>
-        <input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Adicionar' >
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#minutagem').mask('00:00:00');
-            });
-        </script>
+        <div class="form-group">
+            <label for ="data_live">Data da live</label>
+            <input type="date" id="data_live" name="data_live">
+        </div>
+        <input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Gravar e ir para adicionar ativos' >
     </form>
 </div>
 </body>

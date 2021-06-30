@@ -24,6 +24,13 @@ Route::get('/dashboard', function(){
 Route::get('/banner',[EventController::class,'index']);
 Route::get('/addativos/create',[EventController::class, 'create']);
 
+
+
+Route::get('/lives',[EventController::class,'createLive']);
+
+
+
+
 Route::post('edit/{id}', [EventController::class , 'update'])->name('edit');
 
 Route::post('delete/{id}', [EventController::class, 'delete'])->name('delete');
@@ -36,7 +43,8 @@ Route::get('/bannerlive', [EventController::class , 'live']);
 
 Route::get('/conta',[EventController::class, 'conta']);
 
-
 Route::post('/pesquisadata', [EventController::class , 'busca'])->name('pesquisa');
+
+Route::post('/pesquisaedit', [EventController::class , 'buscaedit'])->name('pesquisaedit');
 
 

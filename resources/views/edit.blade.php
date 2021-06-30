@@ -23,12 +23,18 @@
         margin-right:10px;
         margin-top: 15px;
         color: white;
+        font-size: 18px;
     }
 
-    body,h1,h2,h3,h4,h5,h6 {
+    body,h1,h3,h4,h5,h6 {
         font-family: "Raleway", sans-serif;
         font-size: 15px;
         background-color: #ffffff;
+    }
+
+    h2{
+        font-size: 35px;
+        font-family: "Raleway", sans-serif;
     }
 
     body, html {
@@ -45,6 +51,10 @@
       font-size: 20px;
     }
 
+    btn btn-primary{
+        text-align: center;
+    }
+
 </style>
 
 <body>
@@ -54,7 +64,7 @@
         <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
         <!-- Right-sided navbar links -->
         @auth
-            <div class="w3-hide-small" style="margin-left: 45%">
+            <div class="w3-hide-small" style="margin-left: 40%">
                 <a href="/conta" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
                 <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
                 <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
@@ -83,7 +93,12 @@
 
 
 
+<<<<<<< HEAD
 <br><br><br><br><br>
+=======
+
+<br><br><br><br>
+>>>>>>> e9c81933aad8bc085dc4b268e3c40bedc67b313d
 <table class="table">
     <thead>
     <tr>
@@ -94,7 +109,22 @@
     </tr>
     </thead>
     <tbody>
+    <br><br>
 
+    <div class="container">
+        <div class="row">
+            <center>Pesquisar dia;<form action="{{route('pesquisaedit')}}" method="POST" class="form-inline" style="width: 10%">
+                @csrf
+                <div class="form-group row">
+                    <div class="col-10">
+                        <input class="form-control" type="date" id="example-date-input" name="buscaedit">
+                    </div>
+                </div>
+                <br><br><br><br>
+                <button type="submit" class="btn btn-primary">Procurar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            </form>
+        </div>
+    </div><br><br><br>
     @foreach($events as $event)
     <tr>
         <th scope="row">{{ $event->nomeativo}}</th>
