@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Lives extends Model
 {
-    use HasFactory;
+    public function lives(){
 
-    public function live(){
-        return $this->belongsToMany('App\Models\Lives');
+        return $this->belongsToMany('App\Models\Event');
+
     }
 }

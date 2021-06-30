@@ -22,12 +22,14 @@ Route::get('/dashboard', function(){
 });
 
 Route::get('/banner',[EventController::class,'index']);
+Route::get('/bannerlive', [EventController::class , 'live']);
+
 Route::get('/addativos/create',[EventController::class, 'create']);
+Route::post('/addativos', [EventController::class, 'store']);
 
 
-
-Route::get('/lives',[EventController::class,'createLive']);
-
+Route::get('/addlives/lives',[EventController::class, 'createLive']);
+Route::post('/addlives',[EventController::class,'storelive']);
 
 
 
@@ -35,11 +37,7 @@ Route::post('edit/{id}', [EventController::class , 'update'])->name('edit');
 
 Route::post('delete/{id}', [EventController::class, 'delete'])->name('delete');
 
-Route::post('/addativos', [EventController::class, 'store']);
-
 Route::get('/edit-ativos', [EventController::class, 'indexEdit']);
-
-Route::get('/bannerlive', [EventController::class , 'live']);
 
 Route::get('/conta',[EventController::class, 'conta']);
 

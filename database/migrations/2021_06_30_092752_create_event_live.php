@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class  CreateLivesTable extends Migration
+class CreateEventLive extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class  CreateLivesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lives', function (Blueprint $table) {
-            $table->id('id_live');
-            $table->string('nomelive');
-            $table->string('apresentador');
-            $table->timestamps();
+        Schema::create('events_lives', function (Blueprint $table) {
+            $table->foreignId('id_lives')->references('id_live')->on('lives');
+            $table->foreignId('id_events')->references('id')->on('events');
         });
     }
 
@@ -28,6 +26,6 @@ class  CreateLivesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lives');
+        Schema::dropIfExists('events_lives');
     }
 }

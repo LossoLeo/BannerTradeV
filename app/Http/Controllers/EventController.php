@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use Illuminate\Support\Facades\Events;
 
+use App\Models\Lives;
+use Illuminate\Support\Facades\Live;
+
 class EventController extends Controller
 {
     public function index(){
@@ -26,12 +29,25 @@ class EventController extends Controller
 
     public function createLive(){
 
-        return view('lives');
+        return view('addlives.lives');
 
     }
 
+    public function storeLive(Request $request){
+
+        $live = new Lives;
+
+        $live->nomelive = $request->nomelive;
+
+        $live->save();
+
+        return redirect('/addativos/create');
+
+    }
     public function create(){
+
         return view('addativos.create');
+
     }
 
     public function store(Request $request){
