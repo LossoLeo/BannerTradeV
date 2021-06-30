@@ -17,6 +17,8 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('nomeativo');
             $table->string('minutagem');
+            $table->foreign('nome_live')->references('nomelive')->on('lives');
+            /**$table->foreignId('id_live');*/
             $table->timestamps();
 
         });

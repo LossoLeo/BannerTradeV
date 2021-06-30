@@ -87,15 +87,15 @@
 
 </script>
 <div class="contact-form">
-    <form action="/lives" method="POST">
+    <form action="/addlives" method="POST">
         @csrf
         <h1>Criar Live</h1>
         <p class="hint-text"><br></p>
         <div class="form-group">
             <label for="apresentador">Qual o Apresentador?</label>
             <select name="apresentador" id="apresentador">
-                <option value="Felipe Dabul">Felipe Dabul</option>
-                <option value="Eron Borges">Eron Borges</option>
+                <option value="Felipe_Dabul">Felipe Dabul</option>
+                <option value="Eron_Borges">Eron Borges</option>
             </select>
             <span id='valida' class='i i-warning'></span>
         </div>
