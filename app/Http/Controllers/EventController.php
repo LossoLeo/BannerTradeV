@@ -100,6 +100,7 @@ class EventController extends Controller
 
         $data = $request->all();
         $lives = LiveModel::all();
+        $events = Event::where('id_live', $id)->get();
 
         $minutagem = $data['minutagem'];
         $nome = $data['nomeativo'];
@@ -111,14 +112,19 @@ class EventController extends Controller
             Event::where('id' , $id)->update(['nomeativo' => $nome]);
         }
 
-        return redirect('/edit-ativos', ['id_live'=>$idlive, 'lives'=> $lives]);
+
+
+        //return redirect('/edit-ativos', ['id_live'=>$idlive, 'lives'=> $lives]);
+        return redirect()->route('edit-ativos', ['id'=> $idlive]);
     }
 
-    public function delete($id){
+    public function delete($id , $idlive){
 
         Event::where('id' , $id)->delete();
+        $lives = LiveModel::all();
 
-        return redirect('/edit-ativos');
+        return redirect()->route('edit-ativos', ['id'=> $idlive]);
+        //return redirect('/edit-ativos');
     }
 
     public function live($id){

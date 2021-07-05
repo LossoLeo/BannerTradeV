@@ -190,7 +190,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form action="{{route('delete' , ['id' => $event->id])}}" method="post">
+                    <form action="{{route('delete' , ['id' => $event->id, 'idlives' => $id_live])}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="">Excluir {{$event->nomeativo}} criado em {{ date('d-M-y', strtotime($event->created_at)) }} da lista de ativos?</label>

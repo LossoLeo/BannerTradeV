@@ -41,7 +41,7 @@ Route::post('/addlives',[LiveController::class,'addLive']);
 
 Route::post('edit/{id}/{idlives}', [EventController::class , 'update'])->name('edit');
 
-Route::post('delete/{id}', [EventController::class, 'delete'])->name('delete');
+Route::post('delete/{id}/{idlives}', [EventController::class, 'delete'])->name('delete');
 
 Route::get('/edit-ativos/{id}', [EventController::class, 'indexEdit'])->name('edit-ativos');
 
