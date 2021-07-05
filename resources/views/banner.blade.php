@@ -55,11 +55,11 @@
             <!-- Right-sided navbar links -->
             @auth
                 <div class="w3-hide-small" style="margin-left: 40%">
-                    <a href="/conta" class="w3-bar-item w3-button"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
-                    <a href="/addativos/create" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
-                    <a href="/banner" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
-                    <a href="/bannerlive" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
-                    <a href="{{url('edit-ativos')}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
+                    <a href="{{route('createativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
+                    <a href="{{ route('banner', ['id' => $id_live]) }}" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
+                    <a href="{{ route('bannerlive', ['id' => $id_live]) }}" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
+                    <a href="{{route('edit-ativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
+                    <a href="#modalTroca" class="w3-bar-item w3-button" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Alterar Live</a>
                     <form action="logout" method="POST">
                         @csrf
                         <a href="/logout" class="w3-bar-item w3-button" onclick="event.preventDefault();
@@ -81,6 +81,31 @@
     </div>
 <br><br><br>
 </header>
+<!-- Modal -->
+<div class="modal fade" id="modalTroca" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Alterar Live</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('inicio')}}" method="POST">
+                    @csrf
+                    <label for="lives">Qual a live?</label>
+                    <select name="id_live" id="id_live" required>
+                        @foreach($lives as $live)
+                            <option value="{{ $live->id }}">{{ $live->name }}</option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="btn btn-primary">Alterar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -91,7 +116,7 @@
 <br><br><br>
 <div class="container">
     <div class="row">
-        Pesquisar dia;<form action="{{route('pesquisa')}}" method="POST" class="form-inline" style="width: 35%">
+        Pesquisar dia;<form action="{{route('pesquisa', ['id' => $id_live])}}" method="POST" class="form-inline" style="width: 35%">
         @csrf
             <div class="form-group row">
                 <div class="col-10">

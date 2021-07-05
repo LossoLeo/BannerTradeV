@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class  CreateLivesTable extends Migration
+class CreateLiveModelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class  CreateLivesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lives', function (Blueprint $table) {
-            $table->id('id_live');
-            $table->string('nomelive');
-            $table->string('apresentador');
+        Schema::create('live_models', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class  CreateLivesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lives');
+        Schema::dropIfExists('live_models');
     }
 }

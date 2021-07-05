@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lives extends Model
+class LiveModel extends Model
 {
-    public function lives(){
+    use HasFactory;
 
-        return $this->belongsToMany('App\Models\Event');
+    protected $fillable=[
+        'name'
+    ];
 
-    }
 }

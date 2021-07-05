@@ -86,8 +86,9 @@
 <body>
 
 </script>
+
 <div class="contact-form">
-    <form action="/addativos" method="POST">
+    <form action="{{route('createativo', ['id' => $id_live])}}" method="POST">
         @csrf
         <h1>Cadastrar um novo ativo</h1>
         <p class="hint-text">Para minutagem, usar somente números<br></p>

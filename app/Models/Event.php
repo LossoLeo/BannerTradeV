@@ -9,6 +9,13 @@ class Event extends Model
 {
     use HasFactory;
 
+    protected $fillable=[
+      'nomeativo',
+      'minutagem',
+      'id_live',
+    ];
+
+
     public function live(){
         return $this->belongsToMany('App\Models\Lives');
     }

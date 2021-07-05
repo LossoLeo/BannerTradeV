@@ -93,28 +93,60 @@
         <p class="hint-text"><br></p>
         <div class="form-group">
             <label for="apresentador">Qual o Apresentador?</label>
-            <select name="apresentador" id="apresentador">
-                <option value="Felipe_Dabul">Felipe Dabul</option>
-                <option value="Eron_Borges">Eron Borges</option>
+            <select name="id_apresentador" id="id_apresentador" required>
+                <option value="1">Felipe Dabul</option>
+                <option value="2">Eron Borges</option>
+                <option value="3">Mark</option>
             </select>
             <span id='valida' class='i i-warning'></span>
         </div>
         <div class="form-group">
             <label for="lives">Qual a live?</label>
-            <select name="nomelive" id="nomelive">
-                <option value="fechamento_publica">Análise de Fechamento - Pública</option>
-                <option value="position_trade">Position Trade</option>
-                <option value="position_americana">Position Trade Mercado Americano</option>
-                <option value="tira_duvidas">Espaço Tira Dúvidas</option>
-                <option value="fechamento_pt1">Análise de Fechamento - Parte 1</option>
-            </select>
+        <select name="id_live" id="id_live" required>
+            @foreach($lives as $live)
+                <option value="{{ $live->id }}">{{ $live->name }}</option>
+            @endforeach
+        </select>
         </div>
         <div class="form-group">
             <label for ="data_live">Data da live</label>
-            <input type="date" id="data_live" name="data_live">
+            <input type="date" id="data_live" name="data_live" required>
         </div>
         <input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Gravar e ir para adicionar ativos' >
+        <br>
+        <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Salvar dados e escolher  Live
+        </button></center>
     </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('inicio')}}" method="POST">
+                    @csrf
+                <label for="lives">Qual a live?</label>
+                <select name="id_live" id="id_live" required>
+                    @foreach($lives as $live)
+                        <option value="{{ $live->id }}">{{ $live->name }}</option>
+                    @endforeach
+                </select>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 </body>
 </html>
