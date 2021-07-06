@@ -13,6 +13,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
     <style>
         html, body {
@@ -96,6 +101,7 @@
         <div class="form-group">
             <label for="minutagem">Minutagem</label>
             <input type="text" class="form-control" id="minutagem" name='minutagem'
+                   onkeypress= "$(this).mask('00:00:00', {reverse: true});"
                    title='Minutagem' placeholder='Digite a minutagem' required>
         </div>
         <div class="form-group">
@@ -104,12 +110,6 @@
             <span id='valida' class='i i-warning'></span>
         </div>
         <input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Adicionar' >
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#minutagem').mask('00:00:00');
-            });
-
-        </script>
     </form>
 </div>
 </body>

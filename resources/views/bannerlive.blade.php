@@ -121,7 +121,7 @@ marquee{
                                 <div class="container" id="ativos">
                                     <div class="container-a">
                                         <marquee behavior="alternate" direction="up" width="80%">
-                                            <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=20> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                                            <marquee direction="left" scrolldelay=10 loop="10" Scrollamount=13> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
                                         </marquee>
                                     </div>
                                 </div>

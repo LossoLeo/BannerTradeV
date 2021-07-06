@@ -83,8 +83,7 @@
             <a href="#" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
             <!-- Right-sided navbar links -->
             @auth
-                <div class="w3-hide-small" style="margin-left: 25%">
-                    <a href="{{route('createativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
+                <div class="w3-hide-small" style="margin-left: 30%">
                     <a href="{{ route('banner', ['id' => $id_live]) }}" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
                     <a href="{{ route('bannerlive', ['id' => $id_live]) }}" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
                     <a href="{{route('edit-ativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
@@ -144,7 +143,6 @@
 
 </script>
 <br><br><br>
-
 <center><div class="container">
     <div class="row">
         Pesquisar dia;<form action="{{route('pesquisa', ['id' => $id_live])}}" method="POST" class="form-inline" style="width: 35%">
@@ -161,7 +159,7 @@
 </div>
 <br><br><br>
 <!-- Button trigger modal -->
-<center><button type="button" class="btn btn-primary cadastro" data-toggle="modal" data-target="#exampleModal">
+<center><button type="button"  class="btn btn-primary cadastro"  data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
     Cadastrar novo ativo
 </button></center>
 
@@ -170,7 +168,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -202,7 +200,7 @@
 </div>
 
 <br><br><br><br>
-<h2 align="center">Ativos da live do dia {{ $data}}</h2><br><br>
+<h2 align="center">Live {{ $live->name }} do dia {{ $data }}</h2><br><br>
 <table border="0" width="100%" cellpadding="10">
 <tr>
 <div class="container">
