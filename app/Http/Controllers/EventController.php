@@ -213,11 +213,19 @@ class EventController extends Controller
 
         $item = date("d/m" , strtotime($pesquisa));
 
+        $nome = LiveModel::where('id' , $id)->get();
+        $valor = "";
+
+        foreach ($nome as $items){
+            $valor = $items;
+        }
+
         return view('banner' , [
             'events' => $events,
             'data' => $item,
-            'lives' => $lives,
-            'id_live' => $id
+            'lives'=> $lives,
+            'id_live'=> $id,
+            'nome'=> $valor->name,
         ]);
 
     }
@@ -239,6 +247,14 @@ class EventController extends Controller
         $lives = LiveModel::all();
 
         $item = date("d/m/y" , strtotime($pesquisaedit));
+
+        $nome = LiveModel::where('id' , $id)->get();
+        $valor = "";
+
+        foreach ($nome as $items){
+            $valor = $items;
+        }
+
 
         return view('edit' , [
             'events' => $events,

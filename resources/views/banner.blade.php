@@ -205,9 +205,7 @@
 </div>
 
 <br><br><br><br>
-
-    <h2 align="center">Live {{ $nome }} do dia {{ $data }} </h2><br><br>
-
+<h2 align="center">Live {{ $nome }} do dia {{ $data }} </h2><br><br>
 <table border="0" width="100%" cellpadding="10">
 <tr>
 <div class="container">
