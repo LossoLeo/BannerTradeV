@@ -61,15 +61,15 @@
 
 <div class="w3-top">
     <div class="w3-bar w3-card" style="background-color: #000000" id="myNavbar">
-        <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
+        <a href="#" class="w3-bar-item w3-button w3-wide"><img src="{{asset('img/logotrade.png')}}"></a>
         <!-- Right-sided navbar links -->
         @auth
-            <div class="w3-hide-small" style="margin-left: 40%">
-                <a href="{{route('createativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
+            <div class="w3-hide-small" style="margin-left: 25%">
+                <a href="{{ route('createativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Adicionar Ativo</a>
                 <a href="{{ route('banner', ['id' => $id_live]) }}" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Lista de Ativos</a>
                 <a href="{{ route('bannerlive', ['id' => $id_live]) }}" class="w3-bar-item w3-button"><i class="fa fa-television" aria-hidden="true"></i> Live</a>
-                <a href="{{route ('edit-ativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
-                <a href="{{route('trocar-live')}}" class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Alterar Live</a>
+                <a href="{{ route ('edit-ativos', ['id' => $id_live])}}" class="w3-bar-item w3-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar ativos</a>
+                <a href="{{ route('trocar-live')}}" class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Alterar Live</a>
                 <form action="logout" method="POST">
                     @csrf
                     <a href="/logout" class="w3-bar-item w3-button" onclick="event.preventDefault();

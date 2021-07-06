@@ -12,6 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
     <style>
         html, body {
@@ -93,19 +94,21 @@
         <h1>Cadastrar um novo ativo</h1>
         <p class="hint-text">Para minutagem, usar somente números<br></p>
         <div class="form-group">
+            <label for="minutagem">Minutagem</label>
+            <input type="text" class="form-control" id="minutagem" name='minutagem'
+                   title='Minutagem' placeholder='Digite a minutagem' required>
+        </div>
+        <div class="form-group">
             <label for="nomeativo">Ativo</label>
             <input type="text" id='nomeativo' name='nomeativo' title='Nomeativo' placeholder="Digite o ativo" class="form-control" required>
             <span id='valida' class='i i-warning'></span>
-        </div>
-        <div class="form-group">
-            <label for="minutagem">Minutagem</label>
-            <input type="text" class="form-control" id="minutagem" name='minutagem'  title='Minutagem' placeholder='Digite a minutagem' required>
         </div>
         <input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Adicionar' >
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#minutagem').mask('00:00:00');
             });
+
         </script>
     </form>
 </div>

@@ -112,10 +112,10 @@
             <label for ="data_live">Data da live</label>
             <input type="date" id="data_live" name="data_live" required>
         </div>
-        <input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Gravar e ir para adicionar ativos' >
+        <!--<input type='submit' class="btn btn-primary btn-block" name="do_login" id='do_login' value='Gravar e ir para adicionar ativos'>-->
         <br>
         <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Salvar dados e escolher  Live
+            Gravar dados e ir para menu inicial
         </button></center>
     </form>
 </div>
@@ -125,7 +125,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Confirme a escolha da live</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -139,8 +139,8 @@
                         <option value="{{ $live->id }}">{{ $live->name }}</option>
                     @endforeach
                 </select>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+                    <center><button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Mudanças</button></center>
                 </form>
 
             </div>
