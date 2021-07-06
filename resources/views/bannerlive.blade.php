@@ -9,8 +9,9 @@
     <script src="/path/to/cdn/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,500;1,800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
     <script src="marquee.js"></script>
 
     <title>Banner para a live</title>
@@ -27,7 +28,7 @@ li{
 
 body{
     width: 100%;
-    background-color: black;
+    background-color: #06191f;
 }
 
 
@@ -44,7 +45,7 @@ body{
     overflow: auto;
     white-space: nowrap;
     margin: 0 auto;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(6, 25, 31);
     width: 100%;
 }
 
@@ -72,7 +73,7 @@ body{
 }
 
 marquee{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(6, 25, 31);
     width: 100%;
 }
 
@@ -85,8 +86,9 @@ marquee{
 
 </script>
 
-@if($tam <= 8)
 
+
+@if($tam <= 8)
 <div class="order">
     <div class="containermenor" id="ativos">
         <div class="container-a">
@@ -109,7 +111,7 @@ marquee{
                         <div class="container" id="ativos">
                             <div class="container-a">
                                 <marquee behavior="alternate" direction="up" width="80%">
-                                    <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=20> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                                    <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=12> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
                                 </marquee>
                             </div>
                         </div>
@@ -119,7 +121,7 @@ marquee{
                                 <div class="container" id="ativos">
                                     <div class="container-a">
                                         <marquee behavior="alternate" direction="up" width="80%">
-                                            <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=12> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
+                                            <marquee direction="left" scrolldelay=90 loop="10" Scrollamount=20> &nbsp&nbsp&nbsp&nbsp&nbsp {{$palavra}}&nbsp&nbsp&nbsp&nbsp </marquee>
                                         </marquee>
                                     </div>
                                 </div>
@@ -134,7 +136,7 @@ marquee{
                                             </div>
                                         </div>
                                         @endif
-
+                                    </div>
 </div>
 
 

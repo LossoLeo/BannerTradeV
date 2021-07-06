@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Events;
 
 use App\Models\Lives;
 use Illuminate\Support\Facades\Live;
+use phpDocumentor\Reflection\Types\String_;
+use function PHPUnit\Framework\lessThanOrEqual;
 
 class EventController extends Controller
 {
@@ -64,15 +66,41 @@ class EventController extends Controller
 
         $data = $request->all();
 
+        if (strlen($data['minutagem']) == 4 || strlen($data['minutagem']) == 7 ){
+
+            $zero = "0".$data['minutagem'];
+
         Event::create([
             'nomeativo'=> $data['nomeativo'],
-            'minutagem' => $data[ 'minutagem'],
+            'minutagem' => $zero,
             'id_live' => $id,
         ]);
+        }else{
+            Event::create([
+                'nomeativo'=> $data['nomeativo'],
+                'minutagem' => $data[ 'minutagem'],
+                'id_live' => $id,
+            ]);
+        }
 
-        return view('addativos.create', [
-            'id_live' => $id
+
+        $lives = LiveModel::all();
+
+        $data = date('d/m');
+        $lives = LiveModel::all();
+
+        $events = Event::whereDate('created_at',date('Y-m-d'))
+            ->where('id_live', $id)
+            ->get();
+
+
+        return view('banner' , [
+            'events' => $events,
+            'data' => $data,
+            'lives'=> $lives,
+            'id_live'=> $id
         ]);
+
     }
 
     public function inicio(Request $request){
