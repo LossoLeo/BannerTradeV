@@ -101,13 +101,20 @@ class EventController extends Controller
             ->where('id_live', $id)
             ->get();
 
+        $nome = LiveModel::where('id' , $id)->get();
+        $valor = "";
+
+        foreach ($nome as $item){
+            $valor = $item;
+        }
+
 
         return view('banner' , [
             'events' => $events,
             'data' => $data,
             'lives'=> $lives,
             'id_live'=> $id,
-            'name'=> $lives
+            'nome'=> $valor->name,
         ]);
 
     }
