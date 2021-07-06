@@ -24,12 +24,19 @@ class EventController extends Controller
             ->where('id_live', $id)
             ->get();
 
+        $nome = LiveModel::where('id' , $id)->get();
+        $valor = "";
+
+        foreach ($nome as $item){
+            $valor = $item;
+        }
 
         return view('banner' , [
             'events' => $events,
             'data' => $data,
             'lives'=> $lives,
-            'id_live'=> $id
+            'id_live'=> $id,
+            'nome' => $valor->name,
             ]);
 
     }
@@ -89,6 +96,7 @@ class EventController extends Controller
         $data = date('d/m');
         $lives = LiveModel::all();
 
+
         $events = Event::whereDate('created_at',date('Y-m-d'))
             ->where('id_live', $id)
             ->get();
@@ -98,7 +106,8 @@ class EventController extends Controller
             'events' => $events,
             'data' => $data,
             'lives'=> $lives,
-            'id_live'=> $id
+            'id_live'=> $id,
+            'name'=> $lives
         ]);
 
     }

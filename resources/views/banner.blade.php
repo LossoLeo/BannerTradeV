@@ -26,9 +26,14 @@
     <title>Ativos</title>
 </head>
 <style>
-    body,h1,h2,h3,h4,h5,h6 {
+    body,h1,h3,h4,h5,h6 {
         font-family: "Raleway", sans-serif;
         background-color: #ffffff;
+    }
+
+    h2{
+        font-family: "Raleway", sans-serif;
+        font-weight: bolder;
     }
 
     body, html {
@@ -200,7 +205,9 @@
 </div>
 
 <br><br><br><br>
-<h2 align="center">Live {{ $live->name }} do dia {{ $data }}</h2><br><br>
+
+    <h2 align="center">Live {{ $nome }} do dia {{ $data }} </h2><br><br>
+
 <table border="0" width="100%" cellpadding="10">
 <tr>
 <div class="container">
